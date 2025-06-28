@@ -17,7 +17,6 @@ export interface IDataGridProps {
 }
 
 export function DataGrid({ data, height = '70vh' }: IDataGridProps) {
-// export function DataGrid() {
   const containerRef = useRef<HTMLDivElement>(undefined);
 
   useEffect(() => {
@@ -77,7 +76,6 @@ export function DataGrid({ data, height = '70vh' }: IDataGridProps) {
           columnData: columnsArray.map((column) => {
             console.log('column', column);
             return {
-              // w: Math.max(String(column || '').length * 9, 100),
               hd: 0
             };
           }),
@@ -86,27 +84,9 @@ export function DataGrid({ data, height = '70vh' }: IDataGridProps) {
         }
       }
     });
-    // console.log('workbook', workbook, workbook.getActiveSheet());
 
     workbook.getActiveSheet()?.autoResizeColumns(0, 1);
-    // workbook.getActiveSheet()?.autoResizeColumns(0, 1);
-    // univerAPI?.getActiveWorkbook()?.getActiveSheet()?.autoResizeColumns(0, 1);
-    // const timeout = setTimeout(() => {
-    //   const sheet = workbook.getActiveSheet();
-    //   if(sheet) {
-    //     try {
-    //       console.log('sheet', sheet);
-    //       sheet.autoResizeColumns(0, 1);
-    //     } catch(e) {
-    //       console.log('e while autoresize', e);
-    //       // ignore e
-    //     }
-    //   }
-    // }, 200)
 
-    // setTimeout(() => {
-    //   workbook.getActiveSheet()?.autoResizeColumns(0, 3);
-    // }, 2000);
     return () => {
       univerAPI.dispose();
     };
